@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 //Translation
 import { useTranslation } from "react-i18next";
 
-//Conetext
+//Context
 import { DarkMode } from "../../contexts/DarkMode";
 
 //Assets
