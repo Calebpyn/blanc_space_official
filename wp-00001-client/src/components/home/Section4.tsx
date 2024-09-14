@@ -1,13 +1,10 @@
 //Description: This is the who we are section
 
 //Hooks
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 //Translation
 import { useTranslation } from "react-i18next";
-
-//Context
-import { DarkMode } from "../../contexts/DarkMode";
 
 //Assets
 import bg1 from "../../assets/home/bg_1_section_4.png";
@@ -20,14 +17,6 @@ function Section4() {
 
   //Getting inner height
   const [windowHeight] = useState<number>(window.innerHeight - 100);
-
-  //Darkmode context
-  const darkModeContext = useContext(DarkMode);
-  if (!darkModeContext) {
-    throw new Error("DarkModeContext must be used within a DarkModeProvider");
-  }
-
-  const { darkMode } = darkModeContext;
 
   return (
     <div

@@ -15,6 +15,9 @@ import Switch from "./Switch";
 //Translation
 import { useTranslation } from "react-i18next";
 
+//Navigation
+import { useNavigate } from "react-router-dom";
+
 function Navbar() {
   //Translation
   const { t } = useTranslation();
@@ -30,6 +33,9 @@ function Navbar() {
   //SideBar state
   const [isOpen, setIsOpen] = useState<Boolean>(false);
 
+  //Navigate
+  const navigate = useNavigate();
+
   return (
     <div
       className={`${
@@ -37,7 +43,10 @@ function Navbar() {
       } w-full h-[100px] flex justify-between items-center pl-6 lg:px-12 z-[999] fixed top-0 tr`}
     >
       <div className="gap-9 flex items-center">
-        <span className="font-gopherBold text-3xl select-none">
+        <span
+          className="font-gopherBold text-3xl select-none cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           BLANC_SPACE
         </span>
         <div className="hidden lg:flex">
@@ -45,12 +54,27 @@ function Navbar() {
         </div>
       </div>
 
-      <div className="gap-16 hidden font-hnLight items-center lg:flex ml-5">
-        <span>{t("about_us")}</span>
-        <span>{t("who_we_are")}</span>
-        <span>{t("what_we_do")}</span>
-        <span>{t("work_with_us")}</span>
-        <span>{t("contact")}</span>
+      <div className="gap-16 hidden font-hnLight items-center lg:flex ml-5 select-none">
+        <span className="cursor-pointer hover:scale-105 tr">
+          {t("about_us")}
+        </span>
+        <span className="cursor-pointer hover:scale-105 tr">
+          {t("who_we_are")}
+        </span>
+        <span className="cursor-pointer hover:scale-105 tr">
+          {t("what_we_do")}
+        </span>
+        <span
+          onClick={() => {
+            navigate("/jobs");
+          }}
+          className="cursor-pointer hover:scale-105 tr"
+        >
+          {t("work_with_us")}
+        </span>
+        <span className="cursor-pointer hover:scale-105 tr">
+          {t("contact")}
+        </span>
       </div>
 
       <div

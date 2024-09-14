@@ -71,7 +71,7 @@ function Section1() {
             </div>
           </div>
         </div>
-        <div className='flex lg:hidden w-full justify-between font-gopherRegular items-center absolute bottom-0 p-8 text-[12px] text-white'>
+        <div className="flex lg:hidden w-full justify-between font-gopherRegular items-center absolute bottom-0 p-8 text-[12px] text-white">
           <span className="">
             {t("sass_provider")}
             <br />
