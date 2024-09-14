@@ -6,6 +6,9 @@ import { useState } from "react";
 //Translation
 import { useTranslation } from "react-i18next";
 
+//Context
+import { DarkMode } from "../../contexts/DarkMode";
+
 //Assets
 import liquidMetalAsset from "../../assets/common/luquid_metal_asset.png";
 
