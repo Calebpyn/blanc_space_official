@@ -1,5 +1,7 @@
 //Components
 import Navbar from "./components/common/Navbar";
+import Home from "./components/pages/Home";
+import BSJobs from "./components/pages/BSJobs";
 
 //Hooks
 import { useState } from "react";
@@ -9,7 +11,6 @@ import { DarkMode } from "./contexts/DarkMode";
 
 //Routes
 import { HashRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/pages/Home";
 
 function App() {
   //Context state
@@ -27,6 +28,7 @@ function App() {
           <div className="h-screen pt-[100px] overflow-y-auto">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/jobs" element={<BSJobs />} />
             </Routes>
           </div>
         </div>
