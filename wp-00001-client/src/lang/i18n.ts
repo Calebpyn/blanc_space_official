@@ -23,6 +23,16 @@ const resources = {
       your_vision_our: "TU VISIÓN, NUESTRA",
       innovation: "INNOVACIÓN.",
       contact_us_to_upgrade: "Contáctanos para mejorar tu marca.",
+      //  Section 3
+      about_us_header: "About us",
+      who: "Who",
+      who_we: "we",
+      who_are: "are",
+      what: "What",
+      what_we: "we",
+      what_do: "do",
+      contact_us1: "Contact",
+      contact_us2: "us",
       //  Section 4
       who_we_are_title: "QUIÉNES SOMOS",
       section4_content:
@@ -73,6 +83,17 @@ const resources = {
       your_vision_our: "YOUR VISION, OUR",
       innovation: "INNOVATION.",
       contact_us_to_upgrade: "Contact us to upgrade your brand.",
+      //  Section 3
+      about_us_header: "About us",
+      who: "Who",
+      who_we: "we",
+      who_are: "are",
+      what: "What",
+      what_we: "we",
+      what_do: "do",
+      contact_us1: "Contact",
+      contact_us2: "us",
+
       //  Section 4
       who_we_are_title: "WHO WE ARE",
       section4_content:
