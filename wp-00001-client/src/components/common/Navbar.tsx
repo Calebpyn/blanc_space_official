@@ -4,7 +4,7 @@
 import { IoCloseOutline } from "react-icons/io5";
 
 //Hooks
-import { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 //Drakmode context
 import { DarkMode } from "../../contexts/DarkMode";
@@ -16,9 +16,15 @@ import Switch from "./Switch";
 import { useTranslation } from "react-i18next";
 
 //Navigation
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Language from "./Language";
 
-function Navbar() {
+//Props type
+type NavBarProps = {
+  scrollToSection: (section: string) => void;
+};
+
+const Navbar: React.FC<NavBarProps> = ({ scrollToSection }) => {
   //Translation
   const { t } = useTranslation();
 
@@ -36,6 +42,27 @@ function Navbar() {
   //Navigate
   const navigate = useNavigate();
 
+  //Scroll with navigate logic
+  const [scrollTo, setScrollTo] = useState<string>("");
+  const { pathname } = useLocation();
+
+  const handleScroll = (section: string) => {
+    if (pathname !== "/") {
+      navigate("/");
+      setScrollTo(section);
+    } else {
+      scrollToSection(section);
+    }
+  };
+
+  useEffect(() => {
+    if (pathname == "/") {
+      setTimeout(() => {
+        scrollToSection(scrollTo);
+      }, 100);
+    }
+  }, [pathname]);
+
   return (
     <div
       className={`${
@@ -52,16 +79,28 @@ function Navbar() {
         <div className="hidden lg:flex">
           <Switch />
         </div>
+        <div className="hidden lg:flex">
+          <Language />
+        </div>
       </div>
 
       <div className="gap-16 hidden font-hnLight items-center lg:flex ml-5 select-none">
-        <span className="cursor-pointer hover:scale-105 tr">
+        <span
+          className="cursor-pointer hover:scale-105 tr"
+          onClick={() => handleScroll("about_us")}
+        >
           {t("about_us")}
         </span>
-        <span className="cursor-pointer hover:scale-105 tr">
+        <span
+          className="cursor-pointer hover:scale-105 tr"
+          onClick={() => handleScroll("who_we_are")}
+        >
           {t("who_we_are")}
         </span>
-        <span className="cursor-pointer hover:scale-105 tr">
+        <span
+          className="cursor-pointer hover:scale-105 tr"
+          onClick={() => handleScroll("what_we_do")}
+        >
           {t("what_we_do")}
         </span>
         <span
@@ -72,7 +111,10 @@ function Navbar() {
         >
           {t("work_with_us")}
         </span>
-        <span className="cursor-pointer hover:scale-105 tr">
+        <span
+          className="cursor-pointer hover:scale-105 tr"
+          onClick={() => handleScroll("contact")}
+        >
           {t("contact")}
         </span>
       </div>
@@ -109,19 +151,64 @@ function Navbar() {
             />
           </div>
           <div className="flex-col font-hnLight flex gap-10">
-            <span>{t("about_us")}</span>
-            <span>{t("who_we_are")}</span>
-            <span>{t("what_we_do")}</span>
-            <span>{t("work_with_us")}</span>
-            <span>{t("contact")}</span>
+            <span
+              onClick={() => {
+                navigate("/");
+                handleScroll("about_us");
+                setIsOpen(false);
+              }}
+              className="hover:scale-105 tr cursor-pointer"
+            >
+              {t("about_us")}
+            </span>
+            <span
+              onClick={() => {
+                navigate("/");
+                handleScroll("who_we_are");
+                setIsOpen(false);
+              }}
+              className="hover:scale-105 tr cursor-pointer"
+            >
+              {t("who_we_are")}
+            </span>
+            <span
+              onClick={() => {
+                navigate("/");
+                handleScroll("what_we_do");
+                setIsOpen(false);
+              }}
+              className="hover:scale-105 tr cursor-pointer"
+            >
+              {t("what_we_do")}
+            </span>
+            <span
+              onClick={() => {
+                navigate("/jobs");
+                setIsOpen(false);
+              }}
+              className="hover:scale-105 tr cursor-pointer"
+            >
+              {t("work_with_us")}
+            </span>
+            <span
+              onClick={() => {
+                navigate("/");
+                handleScroll("contact");
+                setIsOpen(false);
+              }}
+              className="hover:scale-105 tr cursor-pointer"
+            >
+              {t("contact")}
+            </span>
           </div>
         </div>
-        <div className="pb-10">
+        <div className="pb-10 flex items-center justify-start gap-10">
           <Switch />
+          <Language />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;

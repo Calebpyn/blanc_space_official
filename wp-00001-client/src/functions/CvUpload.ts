@@ -31,8 +31,6 @@ export async function uploadFileToSupabase(
       const { data } = supabase.storage.from(bucket).getPublicUrl(filePath);
       const publicURL = data?.publicUrl; // Access publicUrl from data
 
-      console.log("File uploaded successfully:", data);
-      console.log("Public URL:", publicURL);
       return { error: null, publicUrl: publicURL };
     } catch (error) {
       console.error("Error getting public URL:", error);
