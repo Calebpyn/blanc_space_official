@@ -21,7 +21,7 @@ function Section4() {
   return (
     <div
       style={{ height: `${windowHeight}px` }}
-      className="flex justify-center items-center"
+      className="flex justify-center items-center pt-5"
     >
       <div className="w-[95%] sm:w-[90%] sm:h-[70%] h-[90%] flex sm:flex-row flex-col justify-between items-center">
         <div

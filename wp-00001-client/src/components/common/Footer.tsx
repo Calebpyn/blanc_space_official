@@ -21,7 +21,7 @@ function Footer() {
   return (
     <div
       style={{ backgroundImage: `url(${mainBg})` }}
-      className="w-full h-[200px] bg-cover bg-top text-white font-gopherRegular p-5 flex flex-col gap-6"
+      className="w-full bg-cover bg-top text-white font-gopherRegular p-5 flex flex-col gap-6"
     >
       <span className="flex flex-col">
         <span>{t("content_ft_s1_1")}</span>
