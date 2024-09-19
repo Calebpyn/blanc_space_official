@@ -25,6 +25,7 @@ import { uploadFileToSupabase } from "../../functions/CvUpload";
 import Success from "../common/Success";
 import { CircularProgress } from "@mui/material";
 import Unsuccess from "../common/Unsucces";
+import RecaptchaForm from "../common/RecaptchaForm";
 
 function Section1() {
   const { t } = useTranslation();
@@ -150,7 +151,10 @@ function Section1() {
             <CircularProgress color="inherit" />
           </div>
         ) : (
-          <div className="bg-black bg-opacity-25 h-[90%] md:w-[70%] w-[90%] backdrop-blur-lg rounded-[50px] flex justify-between items-center md:flex-row flex-col p-8 md:p-0">
+          <form
+            className="bg-black bg-opacity-25 h-[90%] md:w-[70%] w-[90%] backdrop-blur-lg rounded-[50px] flex justify-between items-center md:flex-row flex-col p-8 md:p-0"
+            onSubmit={handleUpload}
+          >
             <div className="h-full md:w-[50%] w-full md:p-10 text-white text-[20px] font-hnLight md:pr-5">
               <div className="h-[70%] flex flex-col justify-between items-start w-full">
                 <div className="flex flex-col items-start w-full">
@@ -166,6 +170,7 @@ function Section1() {
                   <input
                     className="bg-transparent border-[1px] border-white rounded-[10px] py-3 px-5 w-full"
                     value={email}
+                    type="email"
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
@@ -226,7 +231,7 @@ function Section1() {
               <div className="w-full h-[30%] flex justify-center items-center text-white">
                 <button
                   className="w-full py-5 px-5 bg-black bg-opacity-40 rounded-[10px] flex justify-between items-center group hover:bg-opacity-50 tr"
-                  onClick={handleUpload}
+                  type="submit"
                 >
                   <span className="text-xl font-hnLight">{t("send")}</span>
                   <div className="w-[70px] flex justify-end items-center tr h-[2px] group-hover:w-[100px] bg-white">
@@ -235,7 +240,7 @@ function Section1() {
                 </button>
               </div>
             </div>
-          </div>
+          </form>
         )}
       </div>
     </div>

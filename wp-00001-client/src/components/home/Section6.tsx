@@ -109,11 +109,11 @@ function Section6() {
               <img
                 src={mainAsset}
                 className="lg:-ml-5 md:-ml-10 lg:w-[55%] contact-us-bp:min-w-[500px]
-                md:min-w-[450px] min-w-[480px] -translate-x-[10%] md:-translate-x-0 md:translate-y-0 translate-y-[35%]"
+                md:min-w-[450px] min-w-[430px] -translate-x-[5%] md:-translate-x-0 md:translate-y-0 translate-y-[35%]"
               />
             </div>
             <div
-              className={`absolute pointer-events-none w-full md:text-5xl text-[40px] leading-10 md:leading-0 lg:h-[70%] h-full flex flex-col justify-between items-start ${
+              className={`absolute pointer-events-none w-full md:text-5xl text-[40px] leading-10 md:leading-0 lg:h-[70%] h-full flex flex-col justify-between items-start -translate-y-[20px] ${
                 darkMode ? "text-white" : "text-black"
               }`}
             >
