@@ -25,7 +25,6 @@ import { uploadFileToSupabase } from "../../functions/CvUpload";
 import Success from "../common/Success";
 import { CircularProgress } from "@mui/material";
 import Unsuccess from "../common/Unsucces";
-import RecaptchaForm from "../common/RecaptchaForm";
 
 function Section1() {
   const { t } = useTranslation();
